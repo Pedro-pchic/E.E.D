@@ -3,6 +3,9 @@ package services;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Optional;
+
 import static org.junit.Assert.*;
 public class NodoTest  {
 
@@ -10,7 +13,7 @@ public class NodoTest  {
 
     @Before
     public void setUp() throws Exception{
-        n = new Nodo(1, null);
+        n = new Nodo(Optional.of(1), null);
     }
 
     @Test

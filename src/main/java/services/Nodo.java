@@ -7,6 +7,7 @@ public class Nodo {
     public Object data;
     public Nodo sig;
 
+
     public Nodo(Object data, Nodo sig) {
         this.data =data;
         this.sig = sig;
@@ -17,9 +18,10 @@ public class Nodo {
     }
     @Override
     public String toString() {
-        return "Nodo{" +
-                "data=" + data +
-                ", sig=" + sig +
-                '}';
+        return "Nodo(data=" + data + ", sig=" + sig + ")";
     }
+
+
+
+
 }
