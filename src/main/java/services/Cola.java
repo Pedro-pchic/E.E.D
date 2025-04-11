@@ -4,8 +4,8 @@ public class Cola {
     private Lista listaCola;
 
 
-    public void Cola(){
-        listaCola = new Lista("cola");
+    public  Cola(){
+        this.listaCola = new Lista("cola");
     }
 
     //agregar un objeto de cola
@@ -27,7 +27,7 @@ public class Cola {
 
     @Override
     public String toString() {
-        return super.toString();
+        return listaCola.toString();
     }
 
 

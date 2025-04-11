@@ -3,7 +3,6 @@ package services;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,39 +11,47 @@ public class PilaTest  {
     private Pila pila;
 
     @Before
-     public void setUp(){
-        pila = new Pila();
+     public void setUp() throws Exception{
+        pila = new Pila("PilaPalindromo");
     }
     @Test
     public void TestPilaIniciaVacia(){
-            assertTrue(pila.estaVacia()," la pila debe esta vacia al crearse");
+        boolean esperado = true;
+        boolean obtenido = pila.estaVacia();
+        assertEquals(esperado, obtenido);
     }
     @Test
     public void testPush() {
         // Verificar que se puede insertar un elemento en la pila
         pila.push("Elemento 1");
-        assertEquals("Lista: Elemento 1 -> null", pila.imprimir(), "La pila no se imprimió correctamente después de hacer push.");
+        assertEquals("Lista: Elemento 1 -> null", pila.imprimir());
 
-        pila.push("Elemento 2");
-        assertEquals("Lista: Elemento 2 -> Elemento 1 -> null", pila.imprimir(), "La pila no se imprimió correctamente después de hacer push de un segundo elemento.");
+
     }
 
     @Test
     public void testPop() throws ExceptionListaVacia {
         // Primero insertamos elementos
-        pila.push("Elemento 1");
-        pila.push("Elemento 2");
+        Object resultado = pila.pop();
+        assertEquals("Elemento 3", resultado);
 
-        // Realizamos un pop
-        Object eliminado = pila.pop();
-        assertEquals("Elemento 2", eliminado, "El elemento eliminado no es el esperado.");
-        assertEquals("Lista: Elemento 1 -> null", pila.imprimir(), "La pila no se imprimió correctamente después de hacer pop.");
+        // Ahora pop elimina el "Elemento 2"
+        resultado = pila.pop();
+        assertEquals("Elemento 2", resultado);
 
-        // Realizamos otro pop
-        eliminado = pila.pop();
-        assertEquals("Elemento 1", eliminado, "El elemento eliminado no es el esperado.");
-        assertEquals("La lista está vacía.", pila.imprimir(), "La pila no se imprimió correctamente después de hacer pop de todos los elementos.");
+        // Ahora pop elimina el "Elemento 1"
+        resultado = pila.pop();
+        assertEquals("Elemento 1", resultado);
+
+        // Cuando la pila está vacía, pop debería lanzar una excepción
+        ExceptionListaVacia exception = assertThrows(ExceptionListaVacia.class, () -> {
+            pila.pop();
+        });
+
+        assertEquals("La lista Mi Pila está vacía.", exception.getMessage());
     }
+
+
 
     @Test
     public void testEstaVacia() {

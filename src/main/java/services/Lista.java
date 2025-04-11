@@ -35,11 +35,12 @@ public class Lista {
         }
     }
     //funcion para insertar al final
-    public void insertaAlFinal(Object d){
-        if(estaVacia())
-            ini = fin = new Nodo (d);
-        else
+    public void insertaAlFinal(Object d) {
+        if (estaVacia()) {
+            ini = fin = new Nodo(d);
+        } else {
             fin = new Nodo(d, fin);
+        }
     }
     public Object elimanarDelFrente() throws ExceptionListaVacia{
         if(estaVacia())

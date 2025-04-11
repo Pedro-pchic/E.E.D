@@ -2,37 +2,40 @@ package services;
 
 
 public class Pila extends Lista {
-    public Pila(){
-        super("pila");
+    private Lista listaPila;
+    public Pila(String pilaPalindromo){
+        this.listaPila = new Lista();
     }//fin del constructor de gherenciaPila sin argumentos
 
-   //push= apilar
+
+
+    //push= apilar
     //agregar objetos a la pila
-    public void push( Object objecto) {
-        insertaAlFrente(objecto);
+    public void push(Object elemento) {
+        listaPila.insertaAlFrente(elemento);
     }
 
     //eliminar objeto de la pila
     public Object pop() throws ExceptionListaVacia{
-        return elimanarDelFrente();
+         return listaPila.elimanarDelFrente();
     }
 
     //determina si la pila esta vacia
     @Override
     public boolean estaVacia(){
-        return super.estaVacia();
+        return listaPila.estaVacia();
     }
 
 
     public String imprimir(){
-        String salida = super.toString();
-        System.out.println("salida");
-        return salida;
+       return listaPila.imprimir();
     }
+
 
     @Override
     public String toString() {
-        return super.toString();
+       return listaPila.toString();
     }
+
 
 }
