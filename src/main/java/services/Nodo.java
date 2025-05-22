@@ -8,6 +8,7 @@ public class Nodo {
     public Nodo sig;
 
 
+
     public Nodo(Object data, Nodo sig) {
         this.data =data;
         this.sig = sig;
